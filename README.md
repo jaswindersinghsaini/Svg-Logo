@@ -17,7 +17,7 @@
 ## Description
 
 The program is a SVG Logo Generator and creates a SVG Logo for the client in following 3 shapes Triangle, Circle or Square. <br>
-The program asks for input from user and creates a SVG Logo file and HTML file which shows the logo in browser per user selection. <br>
+The program asks for input from user and creates a SVG Logo file and a bonus HTML file which shows the logo in browser per user selection. <br>
 The program validates the entries from user prior to creating files.<br>
 It gives a faster way to create a SVG Logo for client's projects.
 
