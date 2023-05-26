@@ -12,6 +12,7 @@
 - [Usage](#usage)
 - [License](#license)
 - [Contributors](#contributors)
+- [Image](#image)
 - [Links/Video](#linksvideo)
 
 ## Description
@@ -47,7 +48,11 @@ SVG Logo Generator per user input.
 
 Self
 
+## Image
+<img src ="https://github.com/jaswindersinghsaini/Svg-Logo/blob/main/examples/logo.svg"/>
+
 ## Links/Video
+
 
 https://drive.google.com/file/d/1PkKUzHlckEkZXKD5F74NFV7faGSvUtju/view
 
