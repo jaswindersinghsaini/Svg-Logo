@@ -51,4 +51,4 @@ Self
 
 
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)]()
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1PkKUzHlckEkZXKD5F74NFV7faGSvUtju/view)
