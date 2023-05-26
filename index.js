@@ -1,6 +1,7 @@
 // Packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const { Triangle, Circle, Square } = require("./lib/shapes");
 
 // Array of questions for user input
 const questions = [
@@ -41,7 +42,8 @@ const questions = [
   {
     type: "input",
     name: "shapeColor",
-    message: "Please enter shape color in standard or hex format (e.g, #ffgghh)",
+    message:
+      "Please enter shape color in standard or hex format (e.g, #ffgghh)",
     validate: (colorInput) => {
       if (!colorInput) {
         console.log(
@@ -56,34 +58,39 @@ const questions = [
 ];
 
 // Function to write SVG file
-
+const svgXmlOpeningTag = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">`;
+const svgXmlClosingTag = `</svg>`;
 function generateLogo(data) {
   let svgFile = "";
+  const svgXmlTriangleTextTag = `<text x="150" y="140" font-size="50" text-anchor="middle" fill="${data.textColor}">${data.title}</text>`;
+  const svgXmlTextTag = `<text x="150" y="120" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.title}</text>`
 
   if (data.shape === "Triangle") {
-    svgFile = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg"> 
-      <polygon width ="300" height ="200" points="150, 18 244, 182 56, 182" fill="${data.shapeColor}" />
-                  <text x="150" y="125" font-size="50" text-anchor="middle" fill="${data.textColor}">${data.title}</text>
-                  </svg> `;
+    const triangle = new Triangle();
+    triangle.setColor(data.shapeColor);
+    svgFile = `${svgXmlOpeningTag} ${triangle.render()} ${svgXmlTriangleTextTag} ${svgXmlClosingTag}`;
+    
+  
   } else if (data.shape === "Circle") {
-    svgFile = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="150" cy="100" r="80" fill="${data.shapeColor}" /> 
-                  <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.title}</text> 
-                  </svg>`;
+    const circle = new Circle();
+    circle.setColor(data.shapeColor);
+    svgFile = `${svgXmlOpeningTag} ${circle.render()} ${svgXmlTextTag} ${svgXmlClosingTag}`;
+    
   } else if (data.shape === "Square") {
-    svgFile = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      <rect width ="300" height ="200"  fill="${data.shapeColor}" />
-                  <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">${data.title}</text>
-                  </svg>`;
+    const square = new Square();
+    square.setColor(data.shapeColor);
+    svgFile = `${svgXmlOpeningTag} ${square.render()} ${svgXmlTextTag} ${svgXmlClosingTag}`;    
+    
   }
   return svgFile;
 }
+
 
 // Function to initialize app
 function init() {
   inquirer.prompt(questions).then((response) => {
     const generatedLogo = generateLogo(response);
-
+    
     // Path and data to logo.svg to show example
     writeToSvgFile("./examples/logo.svg", generatedLogo);
 
