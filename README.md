@@ -25,6 +25,7 @@ It gives a faster way to create a SVG Logo for client's projects.
 
 - Javascript
 - Node Js
+- Tested using Jest Package 
 
 
 ## Installation
@@ -48,7 +49,7 @@ Self
 
 ## Links/Video
 
-
+https://drive.google.com/file/d/1PkKUzHlckEkZXKD5F74NFV7faGSvUtju/view
 
 
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1PkKUzHlckEkZXKD5F74NFV7faGSvUtju/view)
